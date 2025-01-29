@@ -125,7 +125,7 @@ h1 {
   margin-top: 10px;
 }
 
-.product_name {
+.product_card .product_name {
   font-size: 1.3rem;
   /* font-family: "Chonburi"; */
 }
@@ -189,8 +189,47 @@ h1 {
 }
 
 .product_info {
-  margin-top: 15px;
-  margin-bottom: 25px;
+  margin-top: 30px;
+  margin-bottom: 50px;
   display: grid;
   gap: 5px;
+}
+
+/* desktop */
+@media (min-width: 850px) {
+  .product_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1050px;
+    margin: 50px auto;
+    padding: 0 40px;
+  }
+  .product_details {
+    justify-content: center;
+  }
+  .product_container h1 {
+    margin: 0 auto 20px;
+  }
+  .product_container img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .size_details {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .size-btn {
+    flex: 1 1 auto;
+    padding: 10px;
+    text-align: center;
+    border-radius: 6px;
+  }
+  .add-to-cart {
+    width: 100%;
+    padding: 15px;
+  }
 }
