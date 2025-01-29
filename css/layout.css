@@ -127,12 +127,16 @@ h1 {
 
 .product_name {
   font-size: 1.3rem;
-  font-family: "Chonburi";
+  /* font-family: "Chonburi"; */
 }
 
 .product_price {
   align-self: flex-end;
   margin-bottom: 20px;
+}
+
+.soldout img {
+  opacity: 0.5;
 }
 
 /* PRODUCT */
