@@ -34,10 +34,14 @@ header {
   display: block;
   text-decoration: none;
   color: var(--primary-color);
+  padding: 5px 10px;
+  border: solid var(--footer-color);
 }
 .menu a:hover {
   color: var(--hover-color);
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  border: solid var(--primary-color);
+  border-radius: 6px;
 }
 
 .burger {
