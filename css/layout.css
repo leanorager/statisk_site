@@ -140,3 +140,57 @@ h1 {
 }
 
 /* PRODUCT */
+/* Mobile First */
+.product_container {
+  margin: 20px;
+}
+.product_details {
+  display: flex;
+  flex-direction: column;
+}
+.product_container h1 {
+  margin: 20px auto;
+}
+.product_container img {
+  width: 350px;
+  margin: auto;
+}
+
+.size_details {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+.size-btn {
+  flex: 1 1 30%;
+  padding: 10px;
+  background-color: var(--footer-color);
+  border: solid var(--footer-color);
+  border-radius: 12px;
+  color: var(--text-color);
+}
+.size-btn:hover {
+  border: solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.add-to-cart {
+  width: 100%;
+  padding: 15px;
+  margin-top: 10px;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 12px;
+  color: var(--footer-color);
+}
+.add-to-cart:hover {
+  background-color: var(--hover-color);
+}
+
+.product_info {
+  margin-top: 15px;
+  margin-bottom: 25px;
+  display: grid;
+  gap: 5px;
+}
