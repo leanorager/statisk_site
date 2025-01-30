@@ -34,10 +34,72 @@ header {
   display: block;
   text-decoration: none;
   color: var(--primary-color);
+  padding: 5px 10px;
+  border: solid var(--footer-color);
 }
 .menu a:hover {
   color: var(--hover-color);
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  border: solid var(--primary-color);
+  border-radius: 6px;
+}
+
+.burger {
+  width: 30px;
+  height: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.burger .line {
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+  margin-bottom: 5px;
+  transition: 0.2s linear;
+}
+.burger {
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  .menu {
+    display: none;
+  }
+  .burger {
+    display: block;
+  }
+
+  /* burger-linjernes classes der kaldes i js */
+  .burger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+    transition: 0.2s linear;
+  } /* En linje drejer 45 grader, 5px til højre (X-aksen) og 5px nedad (Y-aksen)*/
+
+  .burger.active .line:nth-child(2) {
+    opacity: 0;
+    transition: 0.15s linear;
+  } /* En linje bliver usynlig */
+
+  .burger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+    transition: 0.2s linear;
+  } /* En linje drejer 45 grader, 5px til højre (X-aksen) og 5px nedad (Y-aksen)*/
+
+  /* drop-down-menuens classes der kaldes i js*/
+  nav.active .menu {
+    display: block;
+    background-color: var(--footer-color);
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+  /* menupunkternes classes der kaldes i js*/
+  nav.active .menu li {
+    margin: 10px 20px;
+  }
 }
 
 /* FOOTER */
@@ -86,7 +148,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 10px;
-  margin: 20px;
+  margin: 20px 20px 80px;
 }
 .category_link {
   text-align: center;
@@ -105,7 +167,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
-  margin: 20px;
+  margin: 20px 20px 80px;
 }
 .product_list_container a {
   text-decoration: none;
@@ -125,9 +187,9 @@ h1 {
   margin-top: 10px;
 }
 
-.product_name {
+.product_card .product_name {
   font-size: 1.3rem;
-  font-family: "Chonburi";
+  /* font-family: "Chonburi"; */
 }
 
 .product_price {
@@ -135,4 +197,133 @@ h1 {
   margin-bottom: 20px;
 }
 
+.soldout {
+  position: relative;
+}
+
+.soldout img {
+  opacity: 0.5;
+}
+
+.soldout::before {
+  content: "SOLD OUT";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: black;
+  color: var(--footer-color);
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.discount1 .old_price {
+  text-decoration: line-through;
+  color: rgb(182, 182, 182);
+}
+.discount1 .new_price {
+  text-decoration: none;
+}
+.discount2 .old_price {
+  text-decoration: line-through;
+  color: rgb(182, 182, 182);
+}
+.discount2 .new_price {
+  text-decoration: none;
+}
+
 /* PRODUCT */
+/* Mobile First */
+.product_container {
+  margin: 20px;
+}
+.product_details {
+  display: flex;
+  flex-direction: column;
+}
+.product_container h1 {
+  margin: 20px auto;
+}
+.product_container img {
+  width: 350px;
+  margin: auto;
+}
+
+.size_details {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+.size-btn {
+  flex: 1 1 30%;
+  padding: 10px;
+  background-color: var(--footer-color);
+  border: solid var(--footer-color);
+  border-radius: 12px;
+  color: var(--text-color);
+}
+.size-btn:hover {
+  border: solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.add-to-cart {
+  width: 100%;
+  padding: 15px;
+  margin-top: 10px;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 12px;
+  color: var(--footer-color);
+}
+.add-to-cart:hover {
+  background-color: var(--hover-color);
+}
+
+.product_container .product_info {
+  margin-top: 30px;
+  margin-bottom: 50px;
+  display: grid;
+  gap: 5px;
+}
+
+/* desktop */
+@media (min-width: 850px) {
+  .product_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1050px;
+    margin: 50px auto 80px;
+    padding: 0 40px;
+  }
+  .product_details {
+    justify-content: center;
+  }
+  .product_container h1 {
+    margin: 0 auto 20px;
+  }
+  .product_container img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .size_details {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .size-btn {
+    flex: 1 1 auto;
+    padding: 10px;
+    text-align: center;
+    border-radius: 6px;
+  }
+  .add-to-cart {
+    width: 100%;
+    padding: 15px;
+  }
+}
