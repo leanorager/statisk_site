@@ -1,11 +1,12 @@
-let productId = 1532;
+let productId = new URLSearchParams(window.location.search).get("id");
 
-let productContainer = document.querySelector(".product_container");
+const productContainer = document.querySelector(".product_container");
 
 fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
   .then((response) => response.json())
   // Det er en funktion, der konverterer til json
   .then((data) => {
+    console.log(data);
     productContainer.innerHTML = `
     <div class="product_img">
           <img src="https://kea-alt-del.dk/t7/images/webp/640/${productId}.webp" alt="Produkt" />
