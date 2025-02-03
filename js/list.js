@@ -1,6 +1,10 @@
+const pickedCategory = new URLSearchParams(window.location.search).get("category");
 const productList = document.querySelector(".product_list_container");
+const categoryHeadline = document.querySelector(".category_headline");
 
-fetch(`https://kea-alt-del.dk/t7/api/products?limit=100`)
+categoryHeadline.innerHTML = pickedCategory;
+
+fetch(`https://kea-alt-del.dk/t7/api/products?limit=100&category=${pickedCategory}`)
   .then((response) => response.json())
   .then((data) => showList(data));
 
