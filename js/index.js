@@ -11,7 +11,7 @@ function showCategoryList(categories) {
       (element) => `<a href="productlist.html?category=${element.category}" class="category_link">${element.category}</a>
         `
     )
-    .join("");
-  console.log(markup);
-  categoryList.innerHTML = markup;
+    .join(""); //joiner array og fjerner komma imellem
+  console.log(markup); //logger i console
+  categoryList.innerHTML = markup; //udskriver i html
 }

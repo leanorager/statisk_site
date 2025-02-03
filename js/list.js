@@ -12,7 +12,7 @@ function showList(products) {
   console.log(products);
   const markup = products
     .map(
-      (product) => `<a href="product.html">
+      (product) => `<a href="product.html?id=${product.id}">
           <div class="product_card discount1">
             <img src="https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp" alt="Produkt" />
             <div class="product_info">
