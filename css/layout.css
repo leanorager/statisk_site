@@ -217,6 +217,7 @@ h1 {
   font-weight: bold;
   border-radius: 4px;
   font-family: "universregular";
+  z-index: 2;
 }
 
 .soldout_btn button {
