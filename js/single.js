@@ -8,12 +8,15 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
   .then((data) => {
     console.log(data);
     productContainer.innerHTML = `
-    <div class="product_img">
+    <div class="product_img ${data.soldout && "soldout"}">
           <img src="https://kea-alt-del.dk/t7/images/webp/640/${productId}.webp" alt="Produkt" />
         </div>
-        <div class="product_details">
+        <div class="product_details ${data.discount && "discount1"} ${data.soldout && "soldout_btn"}">
           <h1 class="product_name">${data.productdisplayname}</h1>
-          <p class="product_price">${data.price} DKK</p>
+          <div class="product_price">
+            ${data.discount ? `<span class="old_price">DKK ${data.price}</span>` : ""}
+            <span class="new_price">DKK ${data.discount ? Math.floor(data.price - (data.price * data.discount) / 100) : data.price}</span>
+          </div>
 
           <div class="size_details">
             <button class="size-btn">XS</button>

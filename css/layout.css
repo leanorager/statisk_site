@@ -216,6 +216,15 @@ h1 {
   font-size: 0.9rem;
   font-weight: bold;
   border-radius: 4px;
+  font-family: "universregular";
+}
+
+.soldout_btn button {
+  opacity: 0.5;
+}
+
+.product_price {
+  font-family: "universregular";
 }
 
 /* Skjul kun den normale pris, hvis produktet har en rabat */
