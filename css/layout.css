@@ -218,19 +218,20 @@ h1 {
   border-radius: 4px;
 }
 
+/* Skjul kun den normale pris, hvis produktet har en rabat */
+.discount1 .new_price {
+  display: inline;
+  visibility: visible;
+}
+
 .discount1 .old_price {
   text-decoration: line-through;
   color: rgb(182, 182, 182);
 }
-.discount1 .new_price {
-  text-decoration: none;
-}
-.discount2 .old_price {
-  text-decoration: line-through;
-  color: rgb(182, 182, 182);
-}
-.discount2 .new_price {
-  text-decoration: none;
+
+/* Vis prisen normalt for produkter uden rabat */
+.product_price .new_price {
+  display: inline;
 }
 
 /* PRODUCT */
